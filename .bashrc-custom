@@ -1,0 +1,12 @@
+#docker stop all containers
+alias dsa='docker ps -aq | xargs docker stop'
+#docker remove all containers
+alias dra='docker ps -aq | xargs docker rm'
+alias mi='mvn clean install'
+alias mix='mvn clean install -DskipTests'
+alias tunnel_proxy='ssh -p 443 -D 7111 -f -C -N tunnel'
+alias tunnel_proxy_stop='kill $(ps aux | grep "[s]sh -p 443 -D 7111 -f -C -N tunnel" | awk '"'"'{print $2}'"'"')'
+
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
+export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
