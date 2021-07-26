@@ -7,6 +7,9 @@ alias mix='mvn clean install -DskipTests'
 alias tunnel_proxy='ssh -p 443 -D 7111 -f -C -N tunnel'
 alias tunnel_proxy_stop='kill $(ps aux | grep "[s]sh -p 443 -D 7111 -f -C -N tunnel" | awk '"'"'{print $2}'"'"')'
 
+alias jumphost='ssh -p 34523 -D 18888 -f -C -N localhost'
+alias jumphost_stop='kill $(ps aux | grep "[s]sh -p 34523 -D 18888 -f -C -N localhost" | awk '"'"'{print $2}'"'"')'
+
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
